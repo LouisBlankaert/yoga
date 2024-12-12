@@ -12,7 +12,7 @@ export default function Acceuil() {
 
       {/* Section colorée */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="p-2 ml-10 border-r-2">
+            <div className="p-2 ml-10 lg:border-r-2">
                 <h2 className="text-2xl font-semibold mb-4 text-start">
                     Nos Services
                 </h2>
@@ -47,9 +47,17 @@ export default function Acceuil() {
                 <br/>Le yoga est pour moi un médicament naturel car il renforce la musculature du corps, lui rend son énergie et l’apaise. C’est aussi un médicament de l’âme. Le yoga est l’union du corps et de l’esprit ; le Saddhaka est celui qui cherche la voie…
             </p>
         </div>
-        <div className='flex gap-16 p-3 justify-center'>
-            <img src="/salle1.png" alt="" className='rounded-lg shadow-lg object-cover h-72 w-[30%]' />
-            <img src="/salle2.png" alt="" className='rounded-lg shadow-lg object-cover h-72 w-[30%]' />
+        <div className="flex flex-col sm:flex-col sm:items-center lg:flex-row gap-8 p-3 justify-center w-full">
+            <img
+                src="/salle1.png"
+                alt="Salle 1"
+                className="rounded-lg shadow-lg object-cover h-72 w-[80%] sm:w-[80%] lg:w-[30%]"
+            />
+            <img
+                src="/salle2.png"
+                alt="Salle 2"
+                className="rounded-lg shadow-lg object-cover h-72 w-[80%] sm:w-[80%] lg:w-[30%]"
+            />
         </div>
       </div>
       <div className='w-screen ml-[-65px] pt-10 mb-[-104px]'>

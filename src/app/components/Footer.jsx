@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-10">
+    <footer className="bg-[#8bb5e1] text-white font-bold py-6 mt-10">
       <div className="container mx-auto text-center">
         <p className="text-sm">
           © {new Date().getFullYear()} Alain Yoga. Tous droits réservés.

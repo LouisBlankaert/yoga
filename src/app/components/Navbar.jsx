@@ -18,12 +18,16 @@ export default function Navbar() {
     { href: "/cours", label: "Cours & horaires" },
     { href: "#tarifs", label: "Tarifs & dates" },
     { href: "#formations", label: "Formations" },
-    { href: "#galeries", label: "Galeries" },
+    { href: "/galeries", label: "Galeries" },
     { href: "#divers", label: "Divers" },
     { href: "#contact", label: "Contact" },
   ];
 
   useEffect(() => {
+    // Initialiser `scrollY` et `prevScrollY` avec la position actuelle du scroll
+    setScrollY(window.scrollY);
+    setPrevScrollY(window.scrollY);
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
 

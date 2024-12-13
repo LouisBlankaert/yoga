@@ -29,7 +29,7 @@ function Home() {
         
         {/* Contenu au-dessus de la vidéo */}
         <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-white text-center">
-          <h1 className="text-5xl font-bold opacity-70">Namaste</h1>
+          <h1 className="text-5xl font-bold opacity-60">Namaste</h1>
         </div>
       </div>
 

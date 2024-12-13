@@ -26,18 +26,19 @@ export default function Acceuil() {
                         <li>Micro-Yoga : pour personnes en difficultés physiques</li>
                         <li>Massage</li>
                     </ul>
-            <div className="mt-6">
+            <div className="mt-6 justify-center flex">
                 <button className="px-6 py-2 bg-[#8bb5e1] text-white font-semibold rounded-lg shadow-md hover:bg-blue-200 transition">
-                    Découvrir les cours
+                    Découvrer les cours
                 </button>
             </div>
         </div>  
-        <div className="p-10 flex items-center justify-center lg:justify-center">
+        <div className="p-10 flex flex-col items-center justify-center lg:justify-center">
             <img
-                src="/alain.png" // Remplacez par le chemin réel de votre image
+                src="/alain.png" 
                 alt="Alain en pleine séance de Yoga"
                 className="rounded-lg shadow-lg object-cover object-top h-72 w-72 items-start"
             />
+            <p className='text-lg mt-4'>"Enseigner est le début de la révélation des connaissances apprises" <br /><span className='font-bold text-xl flex justify-center'>Alain Huwé</span></p>
         </div>
       </div>
       <div className='grid-cols-1 lg:grid-cols-2 flex flex-col p-3 mt-24 rounded-lg border shadow-lg'>
@@ -60,7 +61,7 @@ export default function Acceuil() {
             />
         </div>
       </div>
-      <div className='w-screen ml-[-65px] pt-10 mb-[-104px]'>
+      <div className='w-screen ml-[-65px] pt-24 mb-[-104px]'>
         <img src="/yoga_images.png" alt="" className='max-h-52 w-full object-cover' />
       </div>
     </div>

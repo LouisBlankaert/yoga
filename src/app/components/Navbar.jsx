@@ -20,7 +20,7 @@ export default function Navbar() {
     { href: "#formations", label: "Formations" },
     { href: "/galeries", label: "Galeries" },
     { href: "#divers", label: "Divers" },
-    { href: "#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   useEffect(() => {

@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       {/* Vidéo en arrière-plan */}
-      <div className="relative w-full h-screen">
+      <div className="min-h-screen w-full h-screen">
         <video
           className="object-cover w-full h-full bg-black-opacity-25"
           autoPlay

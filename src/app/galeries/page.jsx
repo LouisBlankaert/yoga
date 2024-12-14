@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function page() {
+export default function galeries() {
 
     const photos = [
         { src: "photo1.png", label: "Façade" },

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function page() {
+export default function horaires() {
   return (
     <div>
       <div className='pt-24'>

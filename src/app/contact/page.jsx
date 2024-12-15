@@ -1,11 +1,47 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
+
+  useEffect(() => {
+    // Reset les positions initiales
+    gsap.set(['.contact-title', '.contact-input', '.submit-btn'], {
+      y: 50,
+      opacity: 0
+    });
+
+    const tl = gsap.timeline();
+    
+    tl.to('.contact-title', {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+    .to('.contact-input', {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      stagger: 0.2,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.submit-btn', {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.2');
+
+    // Cleanup function
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,54 +73,53 @@ const Contact = () => {
   };
 
   return (
-    <div className="container m-24 p-8 ml-[24px]">
-      <h1 className="text-3xl font-bold mb-4">Contactez-nous</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium">Nom</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-          />
+    <div className="container mx-auto min-h-screen mt-52 px-8">
+      <div className="text-center mb-12">
+        <h1 className="contact-title text-5xl font-bold">Contactez-nous</h1>
+      </div>
+      <form onSubmit={handleSubmit} className="contact-form max-w-2xl mx-auto space-y-6">
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="contact-input w-full p-4 text-lg bg-white border-b border-gray-300 focus:outline-none transition-colors"
+          placeholder="Votre nom..."
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="contact-input w-full p-4 text-lg bg-white border-b border-gray-300 focus:outline-none transition-colors"
+          placeholder="Votre adresse email..."
+          required
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          className="contact-input large w-full p-4 text-lg bg-white border-b border-gray-300 focus:outline-none transition-colors min-h-[150px] resize-none align-top"
+          placeholder="Votre message..."
+          required
+          style={{ verticalAlign: 'top' }}
+        />
+        <div className="submit-btn-wrap text-center">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="submit-btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
+          >
+            {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+          </button>
         </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            rows="5"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
-        </button>
       </form>
-      {responseMessage && <p className="mt-4 text-sm">{responseMessage}</p>}
+      {responseMessage && (
+        <p className="mt-6 text-center text-lg">
+          {responseMessage}
+        </p>
+      )}
     </div>
   );
 };

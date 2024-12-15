@@ -24,7 +24,7 @@ export default function galeries() {
   return (
     <div className='mt-32'>
         <div className='rounded-lg border shadow-lg py-12 px-6 m-4'>
-            <div className='flex justify-center'>
+            <div className='flex justify-center font-bold text-2xl'>
                 <h1>Photos centre de yoga Evere</h1>
             </div>
             <div className="grid grid-cols-4 gap-4 mt-10">
@@ -44,7 +44,7 @@ export default function galeries() {
         </div>
        {/* Vidéos */}
         <div className="my-20 rounded-lg">
-            <h2 className="text-center text-xl font-bold mb-4">Vidéos</h2>
+            <h2 className="text-center font-bold text-2xl mb-4">Vidéos</h2>
             <div className="rounded-lg shadow-lg grid grid-cols-1 gap-6 p-6">
                 {videos.map((video, index) => (
                 <div

@@ -15,8 +15,8 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Accueil" },
-    { href: "/cours", label: "Cours & horaires" },
-    { href: "#tarifs", label: "Tarifs & dates" },
+    { href: "/horaires", label: "Horaires & tarifs" },
+    { href: "/cours", label: "Cours & dates" },
     { href: "#formations", label: "Formations" },
     { href: "/galeries", label: "Galeries" },
     { href: "#divers", label: "Divers" },
@@ -83,9 +83,11 @@ export default function Navbar() {
 
       {/* Desktop Button */}
       <div className="hidden lg:block">
-        <button className="text-white font-bold px-4 py-2 rounded-lg shadow-md border border-white hover:bg-blue-200 focus:outline-none focus:ring-2 transition-all duration-300 ease-in-out">
+        <Link href="/contact">
+        <button className="text-white font-bold px-4 py-2 rounded-lg shadow-md border border-white hover:bg-blue-200 focus:outline-none transition-all duration-300 ease-in-out">
           Reserver
         </button>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}

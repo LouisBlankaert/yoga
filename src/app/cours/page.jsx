@@ -69,7 +69,7 @@ export default function Cours() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 mt-52">
+    <div className="container mx-auto px-4 mt-44">
       {/* Section titre et description */}
       <div className="max-w-4xl mx-auto mb-16">
         <h1 

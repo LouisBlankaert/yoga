@@ -17,9 +17,10 @@ export default function Navbar() {
     { href: "/", label: "Accueil" },
     { href: "/horaires", label: "Horaires & tarifs" },
     { href: "/cours", label: "Cours & dates" },
-    { href: "#formations", label: "Formations" },
+    { href: "/formations", label: "Formations & stages" },
     { href: "/galeries", label: "Galeries" },
-    { href: "#divers", label: "Divers" },
+    { href: "/divers", label: "Divers" },
+    { href: "/alain", label: "Alain Huwé" },
     { href: "/contact", label: "Contact" },
   ];
 

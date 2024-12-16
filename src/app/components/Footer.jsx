@@ -19,7 +19,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-3">Réseaux sociaux</h3>
             <div className="flex justify-center sm:justify-start gap-6">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/saddhaka/events"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"

@@ -2,7 +2,6 @@
 
 import Acceuil from "./components/Acceuil";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 function Home() {
   return (
@@ -31,7 +30,7 @@ function Home() {
       
       {/* Titre Namaste */}
       <div className="relative h-screen flex items-center justify-center z-10">
-        <h1 className="text-5xl font-bold text-white">Namaste</h1>
+        <h1 className="text-5xl font-bold text-white opacity-70">Namaste</h1>
       </div>
 
       {/* Contenu principal */}

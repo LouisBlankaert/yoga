@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 
 function Home() {
   return (
-    <main className="relative min-h-screen flex flex-col">
+    <main className="relative min-h-screen flex flex-col overflow-x-hidden">
       {/* Section vidéo fixe */}
       <div className="fixed top-0 left-0 w-full h-screen z-0">
         <video
@@ -23,10 +23,7 @@ function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
       </div>
 
-      {/* Navbar fixe */}
-      <div className="fixed top-0 w-full z-50">
-        <Navbar />
-      </div>
+      <Navbar />
       
       {/* Titre Namaste */}
       <div className="relative h-screen flex items-center justify-center z-10">

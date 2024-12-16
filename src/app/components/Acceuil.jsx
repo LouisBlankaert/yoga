@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,53 +147,85 @@ export default function Acceuil() {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen py-20 pb-48">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-zinc-50 min-h-screen py-20 pb-48">
+      <div className="container flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Titre principal */}
-        <div className="py-8 sm:py-12 lg:py-16">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
+        <div className="py-8 sm:py-12 lg:py-16 w-full">
+          <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold text-center">
             Lâchez-prise avec Alain
           </h1>
         </div>
 
-        {/* Section services et image */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div ref={servicesRef} className="p-4 sm:p-6 lg:p-8 lg:border-r-2">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-center lg:text-start">
-              Nos Services
-            </h2>
-            <ul className="list-disc list-inside space-y-3 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-              <li>Cours de Yoga Adultes, cours de Pilates</li>
-              <li>Coaching avec Alain : processus d'accompagnement</li>
-              <li>Méditation</li>
-              <li>Pranayama</li>
-              <li>Relaxation profonde</li>
-              <li>Philosophie</li>
-              <li>Micro-Yoga : pour personnes en difficultés physiques</li>
-              <li>Massage</li>
-            </ul>
-            <div className="mt-8 flex justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-[#8bb5e1] text-white font-semibold rounded-lg shadow-md hover:bg-blue-200 transition duration-300">
-                Découvrer les cours
-              </button>
-            </div>
-          </div>  
-
-          <div ref={imageRef} className="p-4 sm:p-6 lg:p-8 flex flex-col items-center">
-            <div className="w-full max-w-sm">
+        {/* Section image et citation */}
+        <div ref={imageRef} className="mb-16 max-w-5xl w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="flex justify-center">
               <img
                 src="/alain.png" 
                 alt="Alain en pleine séance de Yoga"
-                className="rounded-lg shadow-lg object-cover object-top w-full h-auto aspect-square"
+                className="rounded-lg shadow-xl object-cover object-top w-full max-w-[300px] h-auto aspect-square"
               />
-              <p className="text-base sm:text-lg mt-6 text-center">
-                "Enseigner est le début de la révélation des connaissances apprises"
-                <br />
-                <span className="font-bold text-lg sm:text-xl block mt-2">
-                  Alain Huwé
-                </span>
-              </p>
             </div>
+            <div className="flex justify-center">
+              <blockquote className="relative p-8">
+                <div className="absolute top-0 left-0 transform -translate-x-4 -translate-y-4 text-6xl text-[#8bb5e1] opacity-50">"</div>
+                <p className="text-xl sm:text-2xl italic text-gray-700 mb-4 text-center">
+                  Enseigner est le début de la révélation des connaissances apprises
+                </p>
+                <footer className="font-bold text-lg sm:text-xl text-[#8bb5e1] text-center">
+                  — Alain Huwé
+                </footer>
+                <div className="absolute bottom-0 right-0 transform translate-x-4 translate-y-4 text-6xl text-[#8bb5e1] opacity-50">"</div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        {/* Section services */}
+        <div ref={servicesRef} className="p-4 sm:p-6 lg:p-8 bg-white rounded-lg shadow-lg max-w-5xl w-full">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center text-[#8bb5e1]">
+            Nos Services
+          </h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base sm:text-lg max-w-4xl mx-auto">
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Cours de Yoga Adultes, cours de Pilates</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Coaching avec Alain : processus d'accompagnement</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Méditation</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Pranayama</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Relaxation profonde</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Philosophie</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Micro-Yoga : pour personnes en difficultés physiques</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-[#8bb5e1]">•</span>
+              <span>Massage</span>
+            </li>
+          </ul>
+          <div className="mt-8 flex justify-center">
+            <Link href="/cours">
+              <button className="px-8 py-4 bg-[#8bb5e1] text-white font-semibold rounded-lg shadow-md hover:bg-blue-200 transition duration-300">
+                Découvrir les cours
+              </button>
+            </Link>
           </div>
         </div>
 

@@ -147,7 +147,7 @@ export default function Acceuil() {
   }, []);
 
   return (
-    <div className="bg-zinc-50 min-h-screen py-20 pb-48">
+    <div className="bg-sky-50 min-h-screen py-20 pb-48">
       <div className="container flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Titre principal */}
         <div className="py-8 sm:py-12 lg:py-16 w-full">

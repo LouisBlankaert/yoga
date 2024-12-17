@@ -1,166 +1,131 @@
-"use client"
+"use client";
+import Link from 'next/link';
+import React from 'react';
 
-import { useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-export default function Horaires() {
-  const horaires = [
-    { jour: 'Lundi', heures: ['9h00 - 10h30', '18h00 - 19h30'] },
-    { jour: 'Mardi', heures: ['10h00 - 11h30', '19h00 - 20h30'] },
-    { jour: 'Mercredi', heures: ['9h00 - 10h30', '17h30 - 19h00'] },
-    { jour: 'Jeudi', heures: ['10h00 - 11h30', '18h00 - 19h30'] },
-    { jour: 'Vendredi', heures: ['9h00 - 10h30', '17h00 - 18h30'] },
-    { jour: 'Samedi', heures: ['10h00 - 11h30'] },
+const HorairesPage = () => {
+  const formules = [
+    {
+      categorie: "Cours Réguliers",
+      offres: [
+        {
+          titre: "Cours Drop-in",
+          prix: "15 €",
+          description: "Séance unique sans engagement",
+        },
+        {
+          titre: "Abonnement 10 séances",
+          prix: "130 €",
+          description: "Carte de 10 cours (13€ par séance)",
+        },
+      ]
+    },
+    {
+      categorie: "Formations et Stages",
+      offres: [
+        {
+          titre: "Formation Yoga 10 jours",
+          prix: "950 €",
+          description: "Formation complète répartie sur 12 mois",
+        },
+        {
+          titre: "Weekend Méditation & Yoga",
+          prix: "160 €",
+          description: "Journée entrecoupée de méditation, relaxation & slow yoga",
+        },
+        {
+          titre: "Stage Yoga Hurtebise",
+          prix: "299 €",
+          description: "Stage intensif sur 2 jours",
+        },
+      ]
+    },
+    {
+      categorie: "Retraites et Séjours",
+      offres: [
+        {
+          titre: "Retraite Espagne Malaga",
+          prix: "625 €",
+          description: "All inclusive sauf billet d'avion et transfert",
+        },
+      ]
+    },
+    {
+      categorie: "Coaching et Développement Personnel",
+      offres: [
+        {
+          titre: "Coach de vie",
+          prix: "150 €",
+          description: "Pack de 3 séances (55€ par séance individuelle)",
+        },
+        {
+          titre: "Méditation Mindfulness",
+          prix: "45 € / mois",
+          description: "Sessions via Zoom (15€ la séance unique)",
+        },
+        {
+          titre: "Développement personnel",
+          prix: "160 €",
+          description: "Weekend complet",
+        },
+      ]
+    },
   ];
-
-  const tarifs = [
-    { type: 'Cours à l\'unité', prix: '20€' },
-    { type: 'Carte 5 cours', prix: '90€', validite: '3 mois' },
-    { type: 'Carte 10 cours', prix: '170€', validite: '6 mois' },
-    { type: 'Abonnement mensuel', prix: '80€/mois', description: 'Accès illimité' },
-    { type: 'Cours particulier', prix: '60€', description: '1h de cours' },
-  ];
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const ctx = gsap.context(() => {
-      // Animation des cartes horaires
-      gsap.from('.horaire-card', {
-        scrollTrigger: {
-          trigger: '.horaire-section',
-          start: 'top center+=100',
-          toggleActions: 'play none none reverse'
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: 'power3.out'
-      });
-
-      // Animation des cartes tarifs
-      gsap.from('.tarif-card', {
-        scrollTrigger: {
-          trigger: '.tarif-section',
-          start: 'top center+=100',
-          toggleActions: 'play none none reverse'
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: 'power3.out'
-      });
-
-      // Animation des titres
-      gsap.from('h1, h2', {
-        scrollTrigger: {
-          trigger: 'h1',
-          start: 'top center+=100',
-          toggleActions: 'play none none reverse'
-        },
-        opacity: 0,
-        y: -30,
-        duration: 1,
-        ease: 'power2.out'
-      });
-
-      // Animation de la section note
-      gsap.from('.note-section', {
-        scrollTrigger: {
-          trigger: '.note-section',
-          start: 'top bottom-=100', // Modifié ici
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        ease: 'power2.out'
-      });
-
-      // Animations au survol
-      const cards = document.querySelectorAll('.horaire-card, .tarif-card');
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
-            y: -5,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
-            y: 0,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        });
-      });
-    });
-
-    // Nettoyage
-    return () => {
-      ctx.revert();
-      if (ScrollTrigger) {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      }
-    };
-  }, []);
 
   return (
-    <>
-      <main className="flex min-h-screen mt-24 flex-col items-center p-8 md:p-24">
-        <div className="w-full max-w-4xl">
-          {/* Section Horaires */}
-          <section className="mb-16 horaire-section">
-            <h1 className="text-4xl font-bold text-center mb-12">Horaires des cours</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {horaires.map((jour, index) => (
-                <div key={`${jour.jour}-${index}`} className="horaire-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">{jour.jour}</h3>
-                  <ul className="space-y-2">
-                    {jour.heures.map((heure, heureIndex) => (
-                      <li key={`${heure}-${heureIndex}`} className="text-gray-700">{heure}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Section Tarifs */}
-          <section className="tarif-section">
-            <h2 className="text-4xl font-bold text-center mb-12">Tarifs</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {tarifs.map((tarif, index) => (
-                <div key={`${tarif.type}-${index}`} className="tarif-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <h3 className="text-xl font-semibold mb-3 text-blue-600">{tarif.type}</h3>
-                  <p className="text-2xl font-bold mb-2">{tarif.prix}</p>
-                  {tarif.validite && (
-                    <p className="text-sm text-gray-600">Validité : {tarif.validite}</p>
-                  )}
-                  {tarif.description && (
-                    <p className="text-sm text-gray-600 mt-2">{tarif.description}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Note importante */}
-          <div className="mt-12 text-center text-gray-600 note-section">
-            <p>Les cours sont limités à 12 personnes pour garantir une attention personnalisée.</p>
-            <p className="mt-2">Réservation conseillée pour tous les cours.</p>
+    <div className="min-h-screen bg-gray-50 py-20 px-4 sm:px-6 lg:px-8 mt-36">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Horaires et Tarifs</h1>
+          <p className="text-xl text-gray-600 mb-8">Découvrez nos différentes formules adaptées à vos besoins</p>
+          <div className="bg-[#8bb5e1] text-white rounded-lg p-4 inline-block">
+            <p className="font-semibold">Pour toute information ou réservation :</p>
+            <a href="tel:+32475427861" className="hover:underline">+32 475/42.78.61</a>
           </div>
         </div>
-      </main>
-    </>
+
+        {formules.map((categorie, index) => (
+          <div key={index} className="mb-12">
+            <h2 className="text-2xl font-bold text-[#8bb5e1] mb-6">{categorie.categorie}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categorie.offres.map((offre, offreIndex) => (
+                <div 
+                  key={offreIndex}
+                  className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{offre.titre}</h3>
+                  <div className="text-3xl font-bold text-[#8bb5e1] mb-3">{offre.prix}</div>
+                  <p className="text-gray-600">{offre.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div className="mt-12 bg-white rounded-lg shadow-lg p-8 flex flex-col">
+          <h2 className="text-2xl font-bold text-[#8bb5e1] mb-6">Informations Pratiques</h2>
+          <div className="text-gray-700">
+            <p className="mb-4">
+              <strong>Adresse :</strong><br />
+              Chaussée de Haecht 843<br />
+              1140 EVERE
+            </p>
+            <p className="mb-4">
+              <strong>Contact :</strong><br />
+              Email : <a href="mailto:alain.huwe@gmail.com" className="text-[#8bb5e1] hover:underline">alain.huwe@gmail.com</a><br />
+              Téléphone : <a href="tel:+32475427861" className="text-[#8bb5e1] hover:underline">+32 475/42.78.61</a>
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link href="/contact">
+            <button className="bg-[#8bb5e1] text-white rounded-lg p-4 hover:bg-[#6a9cc2] transition-colors duration-300">
+              Contactez-nous
+              </button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default HorairesPage;

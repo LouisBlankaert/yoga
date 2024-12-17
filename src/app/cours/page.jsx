@@ -96,8 +96,8 @@ export default function Cours() {
           <p className="contact-info">
             Vous pouvez aussi nous rejoindre au : <span className="font-bold">+32 475 42 78 61</span> avec votre nom et prénom
           </p>
-        </div>
-      </div>
+              </div>
+            </div>
 
       {/* Section calendrier */}
       <div className="calendar-section bg-white rounded-lg shadow-lg p-6 mb-12">

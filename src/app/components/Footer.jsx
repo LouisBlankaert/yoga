@@ -9,8 +9,8 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-lg font-semibold mb-3">À propos</h3>
             <p className="text-sm max-w-xs">
-              Alain Yoga offre des cours adaptés à tous les niveaux pour vous
-              aider à atteindre le bien-être et la sérénité.
+              Alain Huwé vous propose des cours de yoga adaptés à tous les niveaux, 
+              dans une approche traditionnelle et authentique du yoga.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
                 <img
                   src="/tiktok-logo.png"
                   alt="TikTok"
-                  className="h-14 -mt-3"
+                  className="h-14 -mt-3 ml-10"
                 />
               </a>
             </div>
@@ -50,13 +50,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-3">Contact</h3>
             <div className="text-sm space-y-2">
               <p>
-                <a href="tel:+33123456789" className="hover:underline">
-                  01 23 45 67 89
+                <a href="tel:+32475427861 " className="hover:underline">
+                  +32 475/42.78.61 
                 </a>
               </p>
               <p>
-                <a href="mailto:contact@alainyoga.com" className="hover:underline">
-                  contact@alainyoga.com
+                <a href="mailto:alain.huwe@gmail.com" className="hover:underline">
+                  alain.huwe@gmail.com
                 </a>
               </p>
             </div>
@@ -66,9 +66,9 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-lg font-semibold mb-3">Localisation</h3>
             <p className="text-sm">
-              123 Rue de la Paix
-              <br />
-              75001 Paris, France
+              Salle de yoga<br />
+              Chaussée de Haecht 843<br />
+              1140 EVERE
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center mt-8 pt-6 border-t border-white/20">
           <p className="text-sm">
-            {new Date().getFullYear()} Alain Yoga. Tous droits réservés.
+            {new Date().getFullYear()} Alain Huwé Yoga. Tous droits réservés.
           </p>
         </div>
       </div>

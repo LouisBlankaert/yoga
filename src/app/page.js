@@ -6,21 +6,19 @@ import Navbar from "./components/Navbar";
 function Home() {
   return (
     <main className="relative min-h-screen flex flex-col overflow-x-hidden">
-      {/* Section vidéo fixe */}
-      <div className="fixed top-0 left-0 w-full h-screen z-0">
+      {/* Section fond d'écran */}
+      <div className="fixed top-0 left-0 right-0 w-full h-screen z-0 overflow-hidden">
         <video
-          className="object-cover w-full h-full"
           autoPlay
           loop
           muted
           playsInline
+          className="absolute top-0 left-0 min-h-full w-auto h-auto object-cover"
         >
-          <source src="videos_yoga.mp4" type="video/mp4" />
-          Votre navigateur ne prend pas en charge la vidéo.
+          <source src="/videos_yoga.mp4" type="video/mp4" />
         </video>
-
-        {/* Overlay noir */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
+        {/* Overlay sombre */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       <Navbar />
@@ -33,6 +31,16 @@ function Home() {
       {/* Contenu principal */}
       <div className="relative z-20 flex-grow">
         <Acceuil />
+      </div>
+
+      {/* Section background bas de page */}
+      <div className="relative w-full h-32 -z-10">
+        <div 
+          className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
+          style={{
+            backgroundImage: "url('/11.png')",
+          }}
+        />
       </div>
     </main>
   );

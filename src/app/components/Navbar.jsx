@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Accueil" },
-    { href: "/horaires", label: "Horaires & tarifs" },
+    { href: "/tarifs", label: "Tarifs" },
     { href: "/cours", label: "Cours & dates" },
     { href: "/formations", label: "Formations & stages" },
     { href: "/galeries", label: "Galeries" },
@@ -40,14 +40,14 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-12 md:h-16 cursor-pointer" />
+            <img src="/logo2.png" alt="Logo" className="ml-4 mt-2 md:h-20 h-14 cursor-pointer" />
           </Link>
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex space-x-6">
+        <div className="hidden xl:flex space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -65,9 +65,9 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Button */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Link href="/contact">
-            <button className="text-white font-bold px-4 py-2 rounded-lg shadow-md border border-white hover:bg-blue-200 hover:text-[#a8ccee] focus:outline-none">
+            <button className="text-white font-bold px-4 py-2 rounded-lg shadow-md border border-white hover:bg-blue-200 hover:text-white focus:outline-none">
               Reserver
             </button>
           </Link>
@@ -75,7 +75,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="block lg:hidden p-2 focus:outline-none"
+          className="block xl:hidden p-2 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
         >
@@ -89,7 +89,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           <div className="fixed inset-0 bg-black/50" onClick={() => setIsMenuOpen(false)} />
           <div className="fixed top-[72px] right-0 w-64 max-w-[80%] h-[calc(100vh-72px)] bg-[#a8ccee] overflow-y-auto">
             <div className="px-4 py-6">
